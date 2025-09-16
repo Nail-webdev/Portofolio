@@ -1,0 +1,583 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fefefc;
+  color: #222;
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Navbar */
+header {
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+.nav-links li {
+  margin: 0 15px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #0077b5; /* Biru LinkedIn */
+}
+.darkmode-toggle {
+  border: none;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 50px;
+  min-height: 90vh;
+}
+.hero-text {
+  max-width: 50%;
+  animation: fadeInLeft 1s ease;
+}
+.hero-text h1 {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+.hero-text h1 span {
+  color: #000;
+  font-weight: bold;
+}
+.hero-text h3 {
+  margin: 10px 0;
+  font-weight: 500;
+}
+.hero-text p {
+  margin-bottom: 20px;
+  color: #555;
+}
+.buttons .btn {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  background: #000;
+  color: #fff;
+  transition: 0.3s;
+}
+.buttons .btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.85;
+}
+.social-icons {
+  margin-top: 15px;
+}
+.social-icons a {
+  margin-right: 15px;
+  font-size: 22px;
+  color: #222;
+  transition: color 0.3s, transform 0.3s;
+}
+.social-icons a:hover {
+  transform: translateY(-3px);
+}
+.social-icons a:nth-child(1):hover { color: #0077b5; } /* LinkedIn */
+.social-icons a:nth-child(2):hover { color: #e4405f; } /* Instagram */
+.social-icons a:nth-child(3):hover { color: #333; }    /* GitHub */
+.hero-img img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #ddd;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  animation: fadeInRight 1s ease;
+}
+
+/* Animasi umum */
+a, .btn, .social-icons a, .project .card {
+  transition: all 0.3s ease;
+}
+
+/* Hover animasi */
+a:hover, 
+.btn:hover, 
+.social-icons a:hover, 
+.project .card:hover {
+  transform: scale(1.05);       /* Membesar sedikit */
+  opacity: 0.9;                 /* Lebih redup sedikit */
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-text, .hero-img {
+    max-width: 100%;
+  }
+  .hero-img img {
+    margin-top: 20px;
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.about-img img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ccc;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.about-text {
+  flex: 1;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* ===== SKILLS SECTION ===== */
+.skills {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill p {
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.progress {
+  background: #eaeaea;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 20px;
+}
+
+.progress-bar {
+  background: #000;
+  height: 100%;
+  color: #fff;
+  font-size: 12px;
+  text-align: right;
+  padding-right: 8px;
+  line-height: 20px;
+  border-radius: 10px 0 0 10px;
+  transition: width 1s ease-in-out;
+}
+
+
+
+/* Sections */
+section {/* Project Section */
+.project {
+  padding: 80px 20px;
+  text-align: center;
+  background: #f9f9f9; /* sama kayak halaman terangmu */
+  color: #111;
+}
+
+.project h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.project-container {
+  display: flex;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 350px;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 20px;
+  text-align: left;
+}
+
+.project-info h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #222;
+}
+
+.project-info p {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.project-info .btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #000;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.project-info .btn:hover {
+  background: #444;
+}
+
+  padding: 60px 50px;
+  text-align: center;
+}
+section h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+.skills ul {
+  list-style: none;
+}
+.skills li {
+  margin: 10px 0;
+}
+.project .card {
+  background: #fff;
+  padding: 20px;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: inline-block;
+  width: 250px;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.project .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #222;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Dark mode */
+body.dark {
+  background: #111;
+  color: #eee;
+}
+body.dark header {
+  background: #222;
+}
+body.dark .nav-links a {
+  color: #eee;
+}
+body.dark .btn {
+  background: #fff;
+  color: #111;
+}
+body.dark .social-icons a {
+  color: #eee;
+}
+body.dark .project .card {
+  background: #1a1a1a;
+  color: #eee;
+}
+
+/* Contact Section */
+#contact {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+  text-align: center;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+#contact h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#contact p {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+/* Form Style */
+#contact form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#contact input,
+#contact textarea {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border-color: #333;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+#contact button {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#contact button:hover {
+  background-color: #555;
+}
+
+/* Animasi */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Default (light mode) */
+body {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #f9f9f9;
+}
+
+/* Supaya heading tetap kontras di dark mode */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode a {
+  color: #f9f9f9;
+}
+
+/* Biar teks abu2 di light mode ikut cerah di dark mode */
+body.dark-mode .sub-text {
+  color: #ccc;
+}
+
+/* Tombol di dark mode */
+body.dark-mode button {
+  background-color: #fff;
+  color: #000;
+}
+
+body.dark-mode button:hover {
+  background-color: #ddd;
+}
+
+/* Default (Light Mode) */
+.contact {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.contact p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: block;
+  background: #fff;
+  color: #222;
+}
+
+.contact button.btn {
+  margin-top: 15px;
+}
+
+/* Dark Mode */
+body.dark-mode .contact {
+  background: #1e1e1e; /* latar belakang gelap */
+  color: #f1f1f1;
+}
+
+body.dark-mode .contact h2,
+body.dark-mode .contact p {
+  color: #f1f1f1;
+}
+
+body.dark-mode .contact input,
+body.dark-mode .contact textarea {
+  background: #2a2a2a;
+  border: 1px solid #555;
+  color: #f1f1f1;
+}
+
+body.dark-mode .contact input::placeholder,
+body.dark-mode .contact textarea::placeholder {
+  color: #aaa;
+}
+
+body.dark-mode .contact button.btn {
+  background: #f1f1f1;
+  color: #121212;
+}
+
+/* === NAVBAR UPDATE === */
+
+/* Logo */
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.logo:hover {
+  color: #0077b5; /* sama kayak link menu */
+  transform: scale(1.05);
+}
+
+/* Nav links animasi */
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #0077b5; /* sama kayak hover color */
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #0077b5;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Dark mode navbar */
+body.dark .logo {
+  color: #eee;
+}
+body.dark .nav-links a {
+  color: #eee;
+}
+body.dark .nav-links a::after {
+  background: #00bcd4; /* bisa kamu ganti warna neon biar kontras */
+}
+
+
